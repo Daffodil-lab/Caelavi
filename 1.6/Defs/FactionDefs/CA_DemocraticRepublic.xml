@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Outlander supplies the vanilla settlement, naming, and world-faction
+       defaults. Replace every pawn group so no inherited Human or Archotech
+       garrison pawn kind enters the Caelavi republic. -->
+  <FactionDef ParentName="OutlanderFactionBase">
+    <defName>CA_DemocraticRepublic</defName>
+    <label>Caelavi Democratic Republic</label>
+    <fixedName>Caelavi Democratic Republic</fixedName>
+    <description>A Caelavi republic dispatched to this rimworld by its archotech patron. The republic maintains a friendly but independent stance toward the player. Its civilians and regular forces appear here; the patron's garrison does not.</description>
+    <pawnSingular>Caelavi citizen</pawnSingular>
+    <pawnsPlural>Caelavi citizens</pawnsPlural>
+    <leaderTitle>council representative</leaderTitle>
+    <categoryTag>CA_DemocraticRepublic</categoryTag>
+    <naturalEnemy>false</naturalEnemy>
+    <permanentEnemy>false</permanentEnemy>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <basicMemberKind>CA_RepublicCivilian</basicMemberKind>
+    <fixedLeaderKinds>
+      <li>CA_RepublicCivilian</li>
+    </fixedLeaderKinds>
+    <!-- No merchant groups or stock are specified yet. These inherited lists
+         are cleared until Caelavi traders and a deliberate catalog exist. -->
+    <caravanTraderKinds Inherit="False" />
+    <visitorTraderKinds Inherit="False" />
+    <baseTraderKinds Inherit="False" />
+    <pawnGroupMakers Inherit="False">
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <CA_RepublicCivilian>1</CA_RepublicCivilian>
+        </options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <CA_RepublicSoldier>1</CA_RepublicSoldier>
+        </options>
+      </li>
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <CA_RepublicCivilian>1</CA_RepublicCivilian>
+          <CA_RepublicSoldier>1</CA_RepublicSoldier>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+</Defs>

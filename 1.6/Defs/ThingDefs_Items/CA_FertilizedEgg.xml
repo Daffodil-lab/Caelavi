@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- This living egg is a single child, never a stack of siblings. Eating,
+       selling and unfertilized eggs remain undecided and are disabled here. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>CA_FertilizedEgg</defName>
+    <label>Caelavi egg</label>
+    <description>A living Caelavi egg. It hatches after twelve days if its temperature remains safe. Each egg carries its own parents and inherited genes.</description>
+    <graphicData>
+      <texPath>Caelavi/Items/EggAlpha</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7, 0.7)</drawSize>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <stackLimit>1</stackLimit>
+    <tradeability>None</tradeability>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>1</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_HasPawnSources"/>
+      <li Class="CompProperties_TemperatureRuinable">
+        <minSafeTemperature>0</minSafeTemperature>
+        <maxSafeTemperature>50</maxSafeTemperature>
+        <progressPerDegreePerTick>0.00003</progressPerDegreePerTick>
+      </li>
+      <li Class="Caelavi.CompProperties_CaelaviEgg">
+        <daysToHatch>12</daysToHatch>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

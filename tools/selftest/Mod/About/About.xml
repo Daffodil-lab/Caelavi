@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Caelavi Alpha Self Test (temporary)</name>
+  <author>Daffodil-lab</author>
+  <packageId>Daffodil.Caelavi.SelfTest</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Temporary isolated runtime checks for the Caelavi alpha. This MOD is never included in the release ZIP and runs only with the caelavi-selftest command-line flag.</description>
+  <modDependencies>
+    <li>
+      <packageId>Daffodil.Caelavi.Core</packageId>
+      <displayName>Caelavi (Alpha)</displayName>
+      <downloadUrl>https://github.com/Daffodil-lab/Caelavi</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Daffodil.Caelavi.Core</li>
+  </loadAfter>
+</ModMetaData>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- A choice letter is serialized by the vanilla LetterStack. -->
+  <LetterDef ParentName="CustomChoiceLetterBase">
+    <defName>CA_CorrespondentOffer</defName>
+    <letterClass>Caelavi.ChoiceLetter_CaelaviCorrespondent</letterClass>
+  </LetterDef>
+</Defs>
