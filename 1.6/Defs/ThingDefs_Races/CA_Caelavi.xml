@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Keep Human life-stage and race settings; the body patch derives a
+       dedicated anatomy from the installed game's Human BodyDef. -->
+  <ThingDef ParentName="Human">
+    <defName>CA_Caelavi</defName>
+    <label>Caelavi</label>
+    <description>A humanlike people with wings, tail feathers, temple feathers, and a crest. This alpha race is currently available through the development pawn kind.</description>
+    <race>
+      <body>CA_HumanWinged</body>
+      <!-- Six in-game days of egg formation; incubation starts after laying. -->
+      <gestationPeriodDays>6</gestationPeriodDays>
+    </race>
+  </ThingDef>
+</Defs>

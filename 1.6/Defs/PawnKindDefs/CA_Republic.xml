@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Current weapon tags select new, unmodified Core equipment for a playable
+       generation proof. They do not assign any item in the Caelavi catalog. -->
+  <PawnKindDef ParentName="OutlanderBase">
+    <defName>CA_RepublicCivilian</defName>
+    <label>Caelavi civilian</label>
+    <race>CA_Caelavi</race>
+    <defaultFactionDef>CA_DemocraticRepublic</defaultFactionDef>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <combatPower>45</combatPower>
+    <isFighter>false</isFighter>
+    <weaponTags>
+      <li>SimpleGun</li>
+      <li>PumpShotgun</li>
+    </weaponTags>
+    <weaponMoney>250~400</weaponMoney>
+    <apparelMoney>200~400</apparelMoney>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="OutlanderBase">
+    <defName>CA_RepublicSoldier</defName>
+    <label>Caelavi republic soldier</label>
+    <race>CA_Caelavi</race>
+    <defaultFactionDef>CA_DemocraticRepublic</defaultFactionDef>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <combatPower>80</combatPower>
+    <isFighter>true</isFighter>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>SpacerGun</li>
+    </weaponTags>
+    <weaponMoney>500~1400</weaponMoney>
+    <apparelTags>
+      <li>IndustrialMilitaryBasic</li>
+      <li>IndustrialMilitaryAdvanced</li>
+    </apparelTags>
+    <apparelMoney>500~900</apparelMoney>
+  </PawnKindDef>
+</Defs>

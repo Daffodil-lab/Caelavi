@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_DemocraticRepublic.label>カエラヴィ民主共和国</CA_DemocraticRepublic.label>
+  <CA_DemocraticRepublic.fixedName>カエラヴィ民主共和国</CA_DemocraticRepublic.fixedName>
+  <CA_DemocraticRepublic.description>盟主アルコテックの命令でこの辺境惑星に派遣されたカエラヴィの共和国。プレイヤーに対して友好的だが独立した立場を取る。ここに現れるのは民間人と共和国軍であり、盟主駐留部隊は登場しない。</CA_DemocraticRepublic.description>
+  <CA_DemocraticRepublic.pawnSingular>カエラヴィ市民</CA_DemocraticRepublic.pawnSingular>
+  <CA_DemocraticRepublic.pawnsPlural>カエラヴィ市民</CA_DemocraticRepublic.pawnsPlural>
+  <CA_DemocraticRepublic.leaderTitle>評議会代表</CA_DemocraticRepublic.leaderTitle>
+</LanguageData>

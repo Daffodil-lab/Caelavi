@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Alpha balance only: 0.15 is rarer than Core WandererJoin (0.4), day 7
+       gives a new colony time to establish a home map, and 45 days limits
+       repeat offers. These do not guarantee an offer in every playthrough.
+       Gear, exact frequency, first day, and repeat policy remain undecided.
+       Any scenario with a player home map can receive the offer. -->
+  <IncidentDef>
+    <defName>CA_CorrespondentJoin</defName>
+    <label>independent correspondent offers to join</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>Caelavi.IncidentWorker_CaelaviCorrespondentJoin</workerClass>
+    <baseChance>0.15</baseChance>
+    <earliestDay>7</earliestDay>
+    <minRefireDays>45</minRefireDays>
+    <requireColonistsPresent>true</requireColonistsPresent>
+    <populationEffect>IncreaseEasy</populationEffect>
+    <pawnKind>CA_DevelopmentPawn</pawnKind>
+    <letterLabel>Independent correspondent</letterLabel>
+    <letterText>An independent Caelavi correspondent asks to join your colony. Will you welcome them?</letterText>
+  </IncidentDef>
+</Defs>

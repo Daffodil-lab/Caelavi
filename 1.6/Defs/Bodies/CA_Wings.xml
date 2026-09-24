@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Reserved for two independent wing records in a future Caelavi BodyDef.
+       30 HP is a provisional analogue of the vanilla arm and shoulder. -->
+  <BodyPartDef>
+    <defName>CA_Wing</defName>
+    <label>wing</label>
+    <hitPoints>30</hitPoints>
+    <skinCovered>true</skinCovered>
+    <tags>
+      <li>Mirrored</li>
+    </tags>
+  </BodyPartDef>
+
+  <!-- Deliberately separate from Torso, Shoulders, and Arms. Apparel protecting
+       wings will explicitly use this group. -->
+  <BodyPartGroupDef>
+    <defName>CA_Wings</defName>
+    <label>wings</label>
+    <listOrder>89</listOrder>
+  </BodyPartGroupDef>
+</Defs>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_Flight_ToggleLabel>展翼／収納</CA_Flight_ToggleLabel>
+  <CA_Flight_ToggleDescription>翼を手動で展開または収納する。展開中は翼の数に応じて移動速度、射撃回避、悪路の移動を補助する。翼を保護する装備中は効果が停止する。</CA_Flight_ToggleDescription>
+  <CA_Flight_RequiresAgeAndWing>生物年齢13歳以上で、翼が少なくとも片方必要です。</CA_Flight_RequiresAgeAndWing>
+</LanguageData>

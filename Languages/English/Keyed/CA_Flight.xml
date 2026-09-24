@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_Flight_ToggleLabel>Deploy / fold wings</CA_Flight_ToggleLabel>
+  <CA_Flight_ToggleDescription>Deploy or fold the wings manually. While deployed, usable wings improve movement speed, ranged dodge, and movement through difficult terrain. Protective wing apparel suppresses these effects.</CA_Flight_ToggleDescription>
+  <CA_Flight_RequiresAgeAndWing>Requires a biological age of at least 13 years and at least one usable wing.</CA_Flight_RequiresAgeAndWing>
+</LanguageData>

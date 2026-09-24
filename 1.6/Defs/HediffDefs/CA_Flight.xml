@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Severity 1 = one intact wing; severity 2 = two intact wings.
+       All figures are temporary alpha tuning values, recorded in docs. -->
+  <HediffDef>
+    <defName>CA_DeployedFlight</defName>
+    <label>deployed wings</label>
+    <description>The Caelavi has spread their wings and is using them to move and avoid incoming fire.</description>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <duplicationAllowed>false</duplicationAllowed>
+    <initialSeverity>2</initialSeverity>
+    <minSeverity>1</minSeverity>
+    <maxSeverity>2</maxSeverity>
+    <stages>
+      <li>
+        <minSeverity>1</minSeverity>
+        <hungerRateFactor>1.15</hungerRateFactor>
+        <restFallFactor>1.15</restFallFactor>
+        <statOffsets>
+          <MoveSpeed>0.25</MoveSpeed>
+          <VEF_RangedDodgeChance>0.05</VEF_RangedDodgeChance>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <hungerRateFactor>1.25</hungerRateFactor>
+        <restFallFactor>1.25</restFallFactor>
+        <statOffsets>
+          <MoveSpeed>0.45</MoveSpeed>
+          <VEF_RangedDodgeChance>0.10</VEF_RangedDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

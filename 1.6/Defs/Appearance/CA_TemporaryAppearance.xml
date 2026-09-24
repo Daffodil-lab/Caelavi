@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- These are newly drawn alpha assets. A single neutral adult shape is used
+       for both sexes until age/body variants are authored; this is visual test
+       data, not a sex or skin-colour rule for the species. -->
+  <BodyTypeDef>
+    <defName>CA_AlphaBody</defName>
+    <headOffset>(0, 0.34)</headOffset>
+    <bodyNakedGraphicPath>Caelavi/Pawn/Body</bodyNakedGraphicPath>
+    <bodyDessicatedGraphicPath>Caelavi/Pawn/Body</bodyDessicatedGraphicPath>
+    <bodyGraphicScale>(1, 1)</bodyGraphicScale>
+  </BodyTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>CA_AlphaHeadMale</defName>
+    <graphicPath>Caelavi/Pawn/Head</graphicPath>
+    <gender>Male</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>CA_AlphaHeadFemale</defName>
+    <graphicPath>Caelavi/Pawn/Head</graphicPath>
+    <gender>Female</gender>
+    <randomChosen>false</randomChosen>
+  </HeadTypeDef>
+
+  <!-- Biotech's native render nodes provide an early four-direction proof of
+       the common feathers. No ability, health effect, or inherited species
+       selection is assigned by this appearance gene. -->
+  <GeneDef>
+    <defName>CA_AlphaMorphologyGene</defName>
+    <label>Caelavi alpha appearance</label>
+    <description>Development artwork for the common wings, tail feathers, temple feathers, and crest of a Caelavi. It grants no gameplay ability.</description>
+    <iconPath>Caelavi/UI/GeneMorphology</iconPath>
+    <displayCategory>Cosmetic_Body</displayCategory>
+    <biostatCpx>0</biostatCpx>
+    <biostatMet>0</biostatMet>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <randomChosen>false</randomChosen>
+    <forcedHeadTypes>
+      <li>CA_AlphaHeadMale</li>
+      <li>CA_AlphaHeadFemale</li>
+    </forcedHeadTypes>
+    <renderNodeProperties>
+      <li Class="Caelavi.CaelaviWingRenderNodeProperties">
+        <debugLabel>Caelavi left wing (alpha)</debugLabel>
+        <workerClass>Caelavi.CaelaviWingRenderNodeWorker</workerClass>
+        <leftWing>true</leftWing>
+        <deployedWing>false</deployedWing>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Caelavi/Pawn/WingLeft</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData><layer>-5</layer></defaultData>
+          <dataNorth><layer>35</layer></dataNorth>
+        </drawData>
+      </li>
+      <li Class="Caelavi.CaelaviWingRenderNodeProperties">
+        <debugLabel>Caelavi right wing (alpha)</debugLabel>
+        <workerClass>Caelavi.CaelaviWingRenderNodeWorker</workerClass>
+        <leftWing>false</leftWing>
+        <deployedWing>false</deployedWing>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Caelavi/Pawn/WingRight</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData><layer>-4</layer></defaultData>
+          <dataNorth><layer>36</layer></dataNorth>
+        </drawData>
+      </li>
+      <li Class="Caelavi.CaelaviWingRenderNodeProperties">
+        <debugLabel>Caelavi left deployed wing (alpha)</debugLabel>
+        <workerClass>Caelavi.CaelaviWingRenderNodeWorker</workerClass>
+        <leftWing>true</leftWing>
+        <deployedWing>true</deployedWing>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Caelavi/Pawn/WingLeftDeployed</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData><layer>-5</layer></defaultData>
+          <dataNorth><layer>35</layer></dataNorth>
+        </drawData>
+      </li>
+      <li Class="Caelavi.CaelaviWingRenderNodeProperties">
+        <debugLabel>Caelavi right deployed wing (alpha)</debugLabel>
+        <workerClass>Caelavi.CaelaviWingRenderNodeWorker</workerClass>
+        <leftWing>false</leftWing>
+        <deployedWing>true</deployedWing>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Caelavi/Pawn/WingRightDeployed</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData><layer>-4</layer></defaultData>
+          <dataNorth><layer>36</layer></dataNorth>
+        </drawData>
+      </li>
+      <li>
+        <debugLabel>Caelavi tail feathers (alpha)</debugLabel>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <parentTagDef>Body</parentTagDef>
+        <texPath>Caelavi/Pawn/Tail</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData><layer>-6</layer></defaultData>
+          <dataNorth><layer>34</layer></dataNorth>
+        </drawData>
+      </li>
+      <li>
+        <debugLabel>Caelavi left temple feathers (alpha)</debugLabel>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <parentTagDef>Head</parentTagDef>
+        <texPath>Caelavi/Pawn/TempleLeft</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <baseLayer>66</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      </li>
+      <li>
+        <debugLabel>Caelavi right temple feathers (alpha)</debugLabel>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <parentTagDef>Head</parentTagDef>
+        <texPath>Caelavi/Pawn/TempleRight</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <baseLayer>67</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      </li>
+      <li>
+        <debugLabel>Caelavi crest feathers (alpha)</debugLabel>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <parentTagDef>Head</parentTagDef>
+        <texPath>Caelavi/Pawn/Crest</texPath>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <baseLayer>68</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <!-- This is a generation carrier for the development kind, not a rule that
+       every Caelavi child inherits a Biotech xenotype. Maternal race and
+       oviparity need their own birth implementation. -->
+  <XenotypeDef>
+    <defName>CA_AlphaMorphology</defName>
+    <label>Caelavi alpha</label>
+    <description>Development appearance set for the Caelavi pawn kind.</description>
+    <iconPath>Caelavi/UI/GeneMorphology</iconPath>
+    <inheritable>false</inheritable>
+    <factionlessGenerationWeight>0</factionlessGenerationWeight>
+    <genes>
+      <li>CA_AlphaMorphologyGene</li>
+    </genes>
+  </XenotypeDef>
+</Defs>
