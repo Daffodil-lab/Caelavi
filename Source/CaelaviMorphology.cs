@@ -90,6 +90,21 @@ internal static class CaelaviGeneratePawnPatch
     private static void Postfix(Pawn __result) => CaelaviMorphology.Ensure(__result);
 }
 
+// Implantation replaces the entire xenogene set. Restore the non-inheritable
+// racial marker after vanilla finishes adding genes and updating the body.
+[HarmonyPatch(typeof(GeneUtility), nameof(GeneUtility.ImplantXenogermItem))]
+internal static class CaelaviImplantXenogermPatch
+{
+    private static void Postfix(Pawn pawn) => CaelaviMorphology.Ensure(pawn);
+}
+
+// The gene reimplantation ability uses a separate vanilla replacement path.
+[HarmonyPatch(typeof(GeneUtility), nameof(GeneUtility.ReimplantXenogerm))]
+internal static class CaelaviReimplantXenogermPatch
+{
+    private static void Postfix(Pawn recipient) => CaelaviMorphology.Ensure(recipient);
+}
+
 // Saves made before this guarantee was added can lack the appearance gene.
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.ExposeData))]
 internal static class CaelaviPawnLoadPatch

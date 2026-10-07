@@ -221,6 +221,42 @@ public sealed class CaelaviSelfTestGameComponent : GameComponent
     private void ReportResult() =>
         Log.Message($"{Prefix} RESULT {(failed == 0 ? "PASS" : "FAIL")} passed={passed} failures={failed}");
 
+    private void CheckXenogermMorphology(PawnKindDef kind, GeneDef morphology)
+    {
+        Pawn recipient = Generate(kind, 18f, DevelopmentalStage.Adult);
+        GeneDef thin = DefDatabase<GeneDef>.GetNamed("Body_Thin");
+        GeneDef darkVision = DefDatabase<GeneDef>.GetNamed("DarkVision");
+        Gene originalMarker = recipient.genes.GetGene(morphology);
+        Genepack pack = (Genepack)ThingMaker.MakeThing(ThingDefOf.Genepack);
+        pack.Initialize(new List<GeneDef> { thin });
+        Xenogerm implant = (Xenogerm)ThingMaker.MakeThing(ThingDefOf.Xenogerm);
+        implant.Initialize(new List<Genepack> { pack }, "Caelavi morphology regression", null);
+        GeneUtility.ImplantXenogermItem(recipient, implant);
+        Check("implant_restores_racial_marker", recipient.genes.GetGene(morphology) != null &&
+              !ReferenceEquals(originalMarker, recipient.genes.GetGene(morphology)) &&
+              recipient.genes.Xenogenes.Count(g => g.def == morphology) == 1 &&
+              recipient.genes.Endogenes.All(g => g.def != morphology));
+        Check("implant_preserves_body_gene", recipient.genes.GetGene(thin)?.Active == true &&
+              recipient.story.bodyType == BodyTypeDefOf.Thin);
+
+        Pawn donor = Generate(PawnKindDefOf.Colonist, 18f, DevelopmentalStage.Adult);
+        donor.genes.ClearXenogenes();
+        donor.genes.AddGene(darkVision, xenogene: true);
+        GeneUtility.ReimplantXenogerm(donor, recipient);
+        Check("reimplant_restores_racial_marker", recipient.genes.Xenogenes.Count(g => g.def == morphology) == 1 &&
+              recipient.genes.Endogenes.All(g => g.def != morphology) &&
+              recipient.genes.GetGene(darkVision)?.Active == true &&
+              recipient.genes.GetGene(thin) == null &&
+              recipient.story.bodyType.defName == "CA_AlphaBody");
+
+        Pawn human = Generate(PawnKindDefOf.Colonist, 18f, DevelopmentalStage.Adult);
+        GeneUtility.ImplantXenogermItem(human, implant);
+        Check("human_implant_no_racial_marker", human.genes.GetGene(morphology) == null);
+        GeneUtility.ReimplantXenogerm(donor, human);
+        Check("human_reimplant_no_racial_marker", human.genes.GetGene(morphology) == null &&
+              human.genes.GetGene(darkVision)?.Active == true);
+    }
+
     private void RunChecks()
     {
         PawnKindDef? kind = DefDatabase<PawnKindDef>.GetNamedSilentFail("CA_DevelopmentPawn");
@@ -253,6 +289,7 @@ public sealed class CaelaviSelfTestGameComponent : GameComponent
               wings.All(part => part.groups.Contains(wingGroup)),
               "records=" + string.Join(",", wings.Select(part => part.customLabel ?? "?")));
         Check("morphology_gene", adult.genes?.GetGene(morphology) != null);
+        CheckXenogermMorphology(kind, morphology);
         CompCaelaviFlight? flight = adult.GetComp<CompCaelaviFlight>();
         Check("flight_comp", flight != null);
         if (flight == null || wings.Count != 2)
