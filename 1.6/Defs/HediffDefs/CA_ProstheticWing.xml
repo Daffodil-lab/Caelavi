@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- A replaceable part on either CA_Wing record. 1.0 efficiency is an
+       alpha value: no artificial-wing flight penalty has been adopted. -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>CA_ProstheticWing</defName>
+    <label>prosthetic wing</label>
+    <labelNoun>a prosthetic wing</labelNoun>
+    <description>An artificial replacement for one Caelavi wing.</description>
+    <descriptionHyperlinks><ThingDef>CA_ProstheticWing</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>CA_ProstheticWing</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.0</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <!-- Industrial prosthetic manufacturing uses Core's machining table and
+       Prosthetics research through BodyPartProstheticMakeableBase. -->
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>CA_ProstheticWing</defName>
+    <label>prosthetic wing</label>
+    <description>An artificial replacement for a lost Caelavi wing. This alpha version can be installed on either side.</description>
+    <descriptionHyperlinks><RecipeDef>CA_InstallProstheticWing</RecipeDef></descriptionHyperlinks>
+    <graphicData>
+      <texPath>Caelavi/Items/ProstheticWing</texPath>
+      <color>(255,255,255)</color>
+    </graphicData>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <Mass>4</Mass>
+      <WorkToMake>17000</WorkToMake>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <!-- CA_Wing is the common BodyPartDef for left and right records. Vanilla's
+       worker selects the actual BodyPartRecord in the surgery bill. -->
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>CA_InstallProstheticWing</defName>
+    <label>install prosthetic wing</label>
+    <description>Install a prosthetic wing on a Caelavi.</description>
+    <descriptionHyperlinks>
+      <ThingDef>CA_ProstheticWing</ThingDef>
+      <HediffDef>CA_ProstheticWing</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing prosthetic wing.</jobString>
+    <recipeUsers Inherit="False">
+      <li>CA_Caelavi</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>CA_ProstheticWing</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>CA_ProstheticWing</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>CA_Wing</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>CA_ProstheticWing</addsHediff>
+  </RecipeDef>
+</Defs>

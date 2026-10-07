@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+Source/bin/
+Source/obj/
+tools/selftest/Source/bin/
+tools/selftest/Source/obj/
+tools/selftest/Mod/Assemblies/
+tools/selftest/runs/
+1.6/Assemblies/*.pdb
+dist/
+.DS_Store

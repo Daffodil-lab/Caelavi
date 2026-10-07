@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Select this kind in developer pawn generation. Faction content comes later. -->
+  <PawnKindDef ParentName="BasePlayerPawnKind">
+    <defName>CA_DevelopmentPawn</defName>
+    <label>Caelavi (development)</label>
+    <race>CA_Caelavi</race>
+    <defaultFactionDef>PlayerColony</defaultFactionDef>
+    <apparelMoney>0~0</apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <xenotypeSet>
+      <xenotypeChances>
+        <CA_AlphaMorphology>999</CA_AlphaMorphology>
+      </xenotypeChances>
+    </xenotypeSet>
+    <useFactionXenotypes>false</useFactionXenotypes>
+  </PawnKindDef>
+</Defs>

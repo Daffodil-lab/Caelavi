@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <CA_AlphaMorphologyGene.label>カエラヴィの仮外見</CA_AlphaMorphologyGene.label>
+  <CA_AlphaMorphologyGene.description>カエラヴィに共通する翼、尾羽、側頭羽、冠羽の開発用表示。この遺伝子にゲームプレイ上の能力はない。</CA_AlphaMorphologyGene.description>
+</LanguageData>
